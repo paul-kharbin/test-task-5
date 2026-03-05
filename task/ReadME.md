@@ -49,10 +49,46 @@ public class Office
     public OfficeType? Type { get; set; }
     public string CountryCode { get; set; }
     public Coordinates Coordinates { get; set; }
-    public Address Address { get; set; }
+    public string? AddressRegion { get; set; }
+    public string? AddressCity { get; set; }
+    public string? AddressStreet { get; set; }
+    public string? AddressHouseNumber { get; set; }
+    public int? AddressApartment { get; set; }
     public string WorkTime { get; set; }
-    public List<Phone> Phones { get; set; } = new List<Phone>();
+    public Phone Phones { get; set; }
     public Office() { }
+}
+```
+
+```csharp
+public class Phone
+{
+    public int Id { get; set; }
+
+    public int OfficeId { get; set; }
+
+    public string PhoneNumber { get; set; }
+
+    public string? Additional { get; set; }
+
+    public Office Office { get; set; }
+}
+```
+
+```csharp
+public class Coordinates
+{
+    public double Latitude { get; set; }
+    public double Longitude { get; set; }
+}
+```
+
+```csharp
+public enum OfficeType
+{
+    PVZ,
+    POSTAMAT,
+    WAREHOUSE
 }
 ```
 
